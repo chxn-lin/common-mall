@@ -1,7 +1,9 @@
 package com.chxn.mall.product;
 
 import com.chxn.mall.product.entity.BrandEntity;
+import com.chxn.mall.product.entity.CategoryEntity;
 import com.chxn.mall.product.service.BrandService;
+import com.chxn.mall.product.service.CategoryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,17 +11,20 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest(classes = MallProductApplication.class)
-class MallProductApplicationTests {
+public class MallProductApplicationTests {
 
     @Autowired
     BrandService brandService;
 
+    @Autowired
+    CategoryService categoryService;
+
     @Test
     void contextLoads() {
 
-        BrandEntity b = new BrandEntity();
-        b.setName("haha");
-        brandService.save(b);
+        CategoryEntity en = new CategoryEntity();
+        en.setCatLevel(123);
+        categoryService.save(en);
 
     }
 
