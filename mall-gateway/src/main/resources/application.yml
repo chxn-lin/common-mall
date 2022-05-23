@@ -14,7 +14,16 @@ spring:
           uri: http://www.baidu.com
           predicates:
             - Query=url,baidu
-        - id: route2
-          uri: http://www.jd.com
+        - id: product_route
+          uri: lb://mall-product
           predicates:
-            - Query=url,jd
+            - Path=/app/product/**
+          filters:
+            - RewritePath=/app/(?<segment>/?.*), /$\{segment}
+
+        - id: app_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/app/**
+          filters:
+            - RewritePath=/app/(?<segment>/?.*), /renren-fast/$\{segment}

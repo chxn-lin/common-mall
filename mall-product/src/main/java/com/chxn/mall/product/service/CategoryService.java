@@ -3,7 +3,9 @@ package com.chxn.mall.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.chxn.common.utils.PageUtils;
 import com.chxn.mall.product.entity.CategoryEntity;
+import com.sun.org.apache.xml.internal.resolver.CatalogEntry;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +18,7 @@ import java.util.Map;
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    List<CategoryEntity> queryPageWithTree(Map<String, Object> maps);
 }
 
