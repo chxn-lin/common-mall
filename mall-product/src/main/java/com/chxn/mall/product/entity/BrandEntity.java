@@ -4,8 +4,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
-import java.util.Date;
+
+import com.chxn.common.valid.ListValue;
+import com.chxn.common.valid.groups.AddGroupInterface;
+import com.chxn.common.valid.groups.UpdateGroupInterface;
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 /**
  * 品牌
@@ -23,14 +30,18 @@ public class BrandEntity implements Serializable {
 	 * 品牌id
 	 */
 	@TableId
+	@NotNull(message = "不为空！", groups = {UpdateGroupInterface.class})
+	@Null(message = "必须为空！", groups = {AddGroupInterface.class})
 	private Long brandId;
 	/**
 	 * 品牌名
 	 */
+	@NotBlank(message = "品牌的名称不能为空")
 	private String name;
 	/**
 	 * 品牌logo地址
 	 */
+	@NotBlank(message = "logo不能为空")
 	private String logo;
 	/**
 	 * 介绍
@@ -39,6 +50,7 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 显示状态[0-不显示；1-显示]
 	 */
+	@ListValue(val = {0, 1}, groups = {AddGroupInterface.class, UpdateGroupInterface.class})
 	private Integer showStatus;
 	/**
 	 * 检索首字母
