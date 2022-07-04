@@ -1,8 +1,5 @@
 package com.chxn.mall.product.service.impl;
 
-import com.sun.org.apache.xml.internal.resolver.Catalog;
-import com.sun.org.apache.xml.internal.resolver.CatalogEntry;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

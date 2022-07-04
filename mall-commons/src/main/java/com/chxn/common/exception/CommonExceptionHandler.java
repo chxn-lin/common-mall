@@ -2,6 +2,8 @@ package com.chxn.common.exception;
 
 import com.chxn.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -9,9 +11,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-@Slf4j
 @RestControllerAdvice(basePackages = "com.chxn.mall.product.controller")
 public class CommonExceptionHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(CommonExceptionHandler.class);
 
     /**
      * 校验异常
