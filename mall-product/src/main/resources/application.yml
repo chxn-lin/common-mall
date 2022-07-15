@@ -13,6 +13,9 @@ spring:
         server-addr: 192.168.217.141:8848
   application:
     name: mall-product
+  redis:
+    host: 192.168.217.141
+    port: 6379
 
 #mybatis
 mybatis-plus:
